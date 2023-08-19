@@ -1,11 +1,26 @@
 {% extends 'users/base.html' %}
 {% block body %}
-<h1>home page for user app</h1>
 
-{%for post in posts%}
-    <h2>{{ post.title }}</h2>
-    <h3>{{ post.user }}</h3>
-    <img src="{{post.image.url}}" alt="">
-    
-{% endfor %}
+<div class="flex mt-10 p-10 justify-center">
+    <h1 class="text-3xl font-normal mb-2 text-gray-500">My posts</h1>
+</div>
+
+<div class="grid mx-60 p-10 grid-col-1">
+    {%for post in posts%}
+        <a href="#">
+            <div class="rounded overflow-hidden w-[470px] h-[470px] bg-white shadow-lg">
+                <div class="user-container flex mx-5 my-5">
+                    <img class="h-10 w-10 rounded-full" src="{{profile.photo.url}}" alt="">   
+                    <div class="mx-2 my-2 font-bold"><span class="text-indigo-500">{{post.user}}</span></div>
+                </div>
+                <img src="{{post.image.url}}" alt="">   
+            </div>
+
+        </a>
+    {% endfor %}
+</div>
+
+
 {% endblock %}
+
+
